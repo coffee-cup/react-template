@@ -11,6 +11,7 @@ This a simple react project that can copied to quickly get a static site up and 
 - [Webpack](https://webpack.github.io/)
 - [SCSS](http://sass-lang.com/)
 - [Tachyons](http://tachyons.io/)
+- [Gridlex](http://gridlex.devlint.fr/)
 - [Animate.css](https://daneden.github.io/animate.css/)
 - [Normalize](https://github.com/JohnAlbin/normalize-scss)
 - [CSS3 Mixins](https://github.com/matthieua/sass-css3-mixins)
