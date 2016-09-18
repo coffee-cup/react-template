@@ -10,6 +10,8 @@
 
 @import 'header/header';
 @import 'footer/footer';
+@import 'copy/copy';
+@import 'section/section';
 
 // :)
 * {
@@ -30,8 +32,8 @@ body {
     overflow-x: hidden;
 
     color: $text-dark;
-
     /* Better Font Rendering =========== */
+
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -97,11 +99,4 @@ a.none:hover {
     width: 100%;
     min-height: 95vh;
     margin: 0;
-}
-
-.section {
-    margin: 1rem 0;
-    &:last-of-type {
-        margin-bottom: 1rem;
-    }
 }

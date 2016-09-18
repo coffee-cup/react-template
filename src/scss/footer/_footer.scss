@@ -1,13 +1,13 @@
 footer {
-    background-color: $accent-colour;
+    background-color: $lightgrey;
     p {
-        color: $text-light;
+        color: $text-dark;
     }
     a,
     a:visited {
         text-decoration: none;
 
-        color: $secondary-colour;
+        color: $main-colour;
     }
 
     a:hover {
