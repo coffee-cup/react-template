@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Header extends Component {
     render() {
         return (
-            <header className="grid-noGutter-centered full center-vertical gutter-small">
+            <header className="grid-noGutter-centered full main-back center-vertical gutter-small">
                 <div className="col-9_xs-12">
                     <div className="header-content pl4 animated fadeInLeft">
                         <h1 className="f1 mv0 pt1">

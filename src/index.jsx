@@ -8,6 +8,7 @@ import Styles from './scss/styles.scss';
 
 // Pages
 import App from './components/App.jsx';
+import NotFound from './components/NotFound.jsx';
 
 // ga.initialize('GA CODE HERE');
 
@@ -18,5 +19,7 @@ function logPageView() {
 render((
     <Router history={browserHistory} onUpdate={logPageView}>
         <Route path="/" component={App} />
+
+        <Route path="*" component={NotFound} />
     </Router>
 ), document.getElementById('app'));

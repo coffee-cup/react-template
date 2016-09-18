@@ -148,6 +148,18 @@
 
 // Background
 
+.main-back {
+    background-color: $main-colour;
+}
+
+.secondary-back {
+    background-color: $secondary-colour;
+}
+
+.accent-back {
+    background-color: $accent-colour;
+}
+
 .lightgrey-back {
     background-color: $lightgrey;
 }
