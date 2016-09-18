@@ -1,0 +1,16 @@
+footer {
+    background-color: $accent-colour;
+    p {
+        color: $text-light;
+    }
+    a,
+    a:visited {
+        text-decoration: none;
+
+        color: $secondary-colour;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+}
