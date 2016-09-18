@@ -1,7 +1,7 @@
 React Template
 =======
 
-This a simple react project that can copied to quickly get a static site up and running.
+This a React project that can copied to quickly get a static site up and running.
 
 ## Features 💥
 
