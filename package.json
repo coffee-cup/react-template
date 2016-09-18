@@ -6,10 +6,11 @@
     "scripts": {
         "dev": "NODE_ENV=dev webpack-dev-server --hot --inline --progress",
         "dash": "NODE_ENV=dev webpack-dashboard -- webpack-dev-server --hot --inline --progress",
-        "build": "npm run clean; NODE_ENV=production webpack -p",
-        "postbuild": "npm run copy",
-        "copy": "cp -r public/* build",
+        "build": "NODE_ENV=production webpack -p",
+        "copy": "cp -r public/* build; cp public/index.html build/200.html",
         "clean": "rimraf build",
+        "prebuild": "npm run clean",
+        "postbuild": "npm run copy",
         "predeploy": "npm run build",
         "deploy": "surge build/ ..."
     },
