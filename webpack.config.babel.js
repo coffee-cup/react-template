@@ -13,7 +13,6 @@ const config = {
         path: path.join(__dirname, '/build'),
         filename: 'app.js'
     },
-    devtool: 'eval-source-map',
     devServer: {
         contentBase: 'public',
         historyApiFallback: true
@@ -80,7 +79,7 @@ if (process.env.NODE_ENV === 'production') {
     ];
 } else {
     // Only do this in development
-    config.devtool = 'source-map';
+    config.devtool = 'eval-source-map';
 }
 
 export default config;

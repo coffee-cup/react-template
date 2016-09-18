@@ -9,7 +9,7 @@ class Header extends Component {
                         <h1 className="f1 mv0 pt1">
                             {"React Template"}
                         </h1>
-                        <h2 className="f3 mt1 pb1">
+                        <h2 className="f3 pv1 mv0">
                             {"A static website thing"}
                         </h2>
                     </div>
