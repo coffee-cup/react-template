@@ -6,8 +6,8 @@ This a simple react project that can copied to quickly get a static site up and 
 ## Features 💥
 
 - [React](https://facebook.github.io/react/)
-- [ESLint](http://eslint.org/)
 - [ES6](https://github.com/lukehoban/es6features)
+- [ESLint](http://eslint.org/)
 - [Webpack](https://webpack.github.io/)
 - [SCSS](http://sass-lang.com/)
 - [Tachyons](http://tachyons.io/)
@@ -21,7 +21,7 @@ This a simple react project that can copied to quickly get a static site up and 
 1. Clone repo
 2. `npm i`
 3. `npm run dev` for live reload server at [localhost:8080](http://localhost:8080)
-4. `npm run dash` for awesome [webpack dashboard](https://github.com/FormidableLabs/webpack-dashboard)
+4. `npm run dash` for an awesome [webpack dashboard](https://github.com/FormidableLabs/webpack-dashboard)
 4. `npm run build` for production ready static site
 
 ### Source 👼
@@ -30,11 +30,10 @@ This a simple react project that can copied to quickly get a static site up and 
     + Entry is `index.jsx`
     + Components in `components/`
     + JavaScript in `js/`
-    + Data in `js/data/`
     + Styles in `scss/`
     + Assets and icons in `assets/`
     + Images in `images/`
-- Public file in `public/`
+- Public files in `public/`
 
 ### Deployment 🚀
 
