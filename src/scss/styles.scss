@@ -48,8 +48,8 @@ h2 {
 }
 
 p {
-    font-size: 16px;
-    line-height: 1.5;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
 
     color: $text-dark;
 }

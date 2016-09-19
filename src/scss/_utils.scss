@@ -84,8 +84,8 @@
 .gutter-small {
     @include break(xsmall) {
         max-width: 100%;
-        padding-right: 1.5rem;
-        padding-left: 1.5rem;
+        padding-right: $side-padding-small;
+        padding-left: $side-padding-small;
     }
 }
 

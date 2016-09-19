@@ -11,6 +11,9 @@ $accent-colour    : $blue;
 $text-dark        : #4A4A4A;
 $text-light       : white;
 
+$base-font-size: 16px;
+$base-line-height: 1.5;
+
 $ultra-light: 200;
 $light: 300;
 $normal: 400;
@@ -21,6 +24,6 @@ $error-colour     : #DE4242;
 
 $bradius          : 2px;
 
-$side-padding: 2rem;
+$side-padding-small: 1.5rem;
 
 $s-animation: 0.250s ease-in-out;
