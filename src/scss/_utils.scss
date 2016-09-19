@@ -59,14 +59,30 @@
     color: $text-light;
 }
 
-.text-coloured {
+.text-main {
     color: $main-colour;
+}
+
+.text-secondary {
+    color: $secondary-colour;
+}
+
+.text-accent {
+    color: $accent-colour;
+}
+
+.text-lightgrey {
+    color: $lightgrey;
+}
+
+.text-grey {
+    color: $grey;
 }
 
 // WHITE SPACE
 
 .gutter-small {
-    @include break(small) {
+    @include break(xsmall) {
         max-width: 100%;
         padding-right: 1.5rem;
         padding-left: 1.5rem;
@@ -148,19 +164,19 @@
 
 // Background
 
-.main-back {
+.bg-main {
     background-color: $main-colour;
 }
 
-.secondary-back {
+.bg-secondary {
     background-color: $secondary-colour;
 }
 
-.accent-back {
+.bg-accent {
     background-color: $accent-colour;
 }
 
-.lightgrey-back {
+.bg-lightgrey {
     background-color: $lightgrey;
 }
 
