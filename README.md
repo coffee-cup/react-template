@@ -1,6 +1,14 @@
 React Template
 =======
 
+```
+ _  _
+(.\( ) *
+ (_Y|_/
+   /_\
+    L
+```
+
 This a React project that can copied to quickly get a static site up and running.
 
 ## Features 💥
