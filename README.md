@@ -11,6 +11,8 @@ React Template
 
 This a React project that can copied to quickly get a static site up and running.
 
+[Website this template creates can be found here!](https://coffee-cup-react-template.surge.sh)
+
 ## Features 💥
 
 - [React](https://facebook.github.io/react/)
