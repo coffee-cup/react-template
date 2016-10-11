@@ -15,6 +15,15 @@
     box-sizing: border-box;
 }
 
+// Text Selection Colour
+::selection {
+  background: $selection; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: $selection; /* Gecko Browsers */
+}
+
+
 html,
 body {
     width: 100vw;
