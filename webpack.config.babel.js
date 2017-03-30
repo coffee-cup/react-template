@@ -11,7 +11,7 @@ console.log(
 );
 
 const config = {
-    entry: ['./src/index.jsx'],
+    entry: ['babel-polyfill', 'react-hot-loader/patch', './src/index.jsx'],
     output: {
         path: path.join(__dirname, '/build'),
         filename: 'app.js',
@@ -38,7 +38,7 @@ const config = {
             {
                 test: /\.(jsx|js)$/,
                 exclude: /node_modules/,
-                loader: 'babel-loader'
+                loaders: ['react-hot-loader/webpack', 'babel-loader']
             },
             {
                 test: /\.(css|scss)$/,
@@ -94,7 +94,7 @@ if (isProd) {
     ]);
 } else {
     // Only do this in development
-    config.devtool = 'inline-source-map';
+    config.devtool = 'eval';
     config.plugins = config.plugins.concat([
         new WebpackNotifierPlugin(),
         new DashboardPlugin()

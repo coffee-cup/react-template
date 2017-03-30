@@ -1,32 +1,29 @@
 import React from 'react';
-import { render } from 'react-dom';
-import { Router, Route, Switch } from 'react-router-dom';
-import createBrowserHistory from 'history/createBrowserHistory';
-import ga from 'react-ga';
+import ReactDOM from 'react-dom';
+import { AppContainer } from 'react-hot-loader';
 
 import 'tachyons/css/tachyons.css';
 import 'normalize-css';
 import './scss/main.scss';
 
-// Pages
-import App from './components/App.jsx';
-import NotFound from './components/NotFound.jsx';
+// Routes
+import Routes from './Routes.jsx';
 
-// ga.initialize('GA CODE HERE');
+const render = Component => {
+    ReactDOM.render(
+        <AppContainer>
+            <Component />
+        </AppContainer>,
+        document.getElementById('app')
+    );
+};
 
-const history = createBrowserHistory();
-function logPageView() {
-    ga.pageview(window.location.pathname);
+render(Routes);
+
+if (module.hot) {
+    module.hot.accept('./Routes.jsx', () => {
+        // eslint-disable-next-line
+        const NextRoutes = reqiure('./Routes.jsx').default;
+        render(NextRoutes);
+    });
 }
-
-render(
-    <Router history={history} onUpdate={logPageView}>
-        <div>
-            <Switch>
-                <Route exact path="/" component={App} />
-                <Route component={NotFound} />
-            </Switch>
-        </div>
-    </Router>,
-    document.getElementById('app')
-);

@@ -213,7 +213,6 @@
     /* Babel */
     "babel/new-cap": 1,
     "babel/object-curly-spacing": [1, "always"],
-    // "babel/space-in-brackets": 1, // deprecated
 
     /* React */
     "react/display-name": 1,
