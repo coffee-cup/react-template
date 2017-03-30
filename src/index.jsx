@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Router, Route } from 'react-router';
+import { Router, Route, Switch } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
 import ga from 'react-ga';
 
@@ -22,8 +22,10 @@ function logPageView() {
 render(
     <Router history={history} onUpdate={logPageView}>
         <div>
-            <Route path="/" component={App} />
-
+            <Switch>
+                <Route exact path="/" component={App} />
+                <Route component={NotFound} />
+            </Switch>
         </div>
     </Router>,
     document.getElementById('app')
