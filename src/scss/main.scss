@@ -68,14 +68,3 @@ ul.none {
 
     list-style-type: none;
 }
-
-.section {
-    padding-bottom: 4rem;
-}
-
-.spotify {
-    transition: $s-animation;
-    &:hover {
-        color: $spotify;
-    }
-}

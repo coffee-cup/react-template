@@ -10,7 +10,7 @@ class Section extends Component {
     render() {
         const { className, heading, children } = this.props;
         return (
-            <div className={classNames(className, 'section')}>
+            <div className={classNames(className, 'section', 'mb6')}>
                 <HeadingSmall title={heading} />
                 {children}
             </div>
