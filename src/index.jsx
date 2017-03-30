@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Router, Route, browserHistory } from 'react-router';
+import { Router, Route } from 'react-router';
+import createBrowserHistory from 'history/createBrowserHistory';
 import ga from 'react-ga';
 
 import './scss/styles.scss';
@@ -11,14 +12,17 @@ import NotFound from './components/NotFound.jsx';
 
 // ga.initialize('GA CODE HERE');
 
+const history = createBrowserHistory();
 function logPageView() {
     ga.pageview(window.location.pathname);
 }
 
-render((
-    <Router history={browserHistory} onUpdate={logPageView}>
-        <Route path="/" component={App} />
-
-        <Route path="*" component={NotFound} />
-    </Router>
-), document.getElementById('app'));
+render(
+    <Router history={history} onUpdate={logPageView}>
+        <div>
+            <Route exact path="/" component={App} />
+            <Route path="*" component={NotFound} />
+        </div>
+    </Router>,
+    document.getElementById('app')
+);

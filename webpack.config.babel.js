@@ -6,63 +6,76 @@ import path from 'path';
 require('es6-promise').polyfill();
 
 const config = {
-    entry: [
-        './src/index.jsx'
-    ],
+    entry: ['./src/index.jsx'],
     output: {
         path: path.join(__dirname, '/build'),
-        filename: 'app.js'
+        filename: 'app.js',
+        publicPath: '/'
     },
     devServer: {
+        inline: true,
+        hot: true,
         contentBase: 'public',
         historyApiFallback: true
     },
     module: {
-        preLoaders: [{
-            test: /\.(jsx|js)$/,
-            loader: 'eslint-loader',
-            exclude: [/node_modules/, /server/]
-        }],
-        loaders: [{
-            test: /\.json$/,
-            loader: 'json'
-        }, {
-            test: /\.(jsx|js)$/,
-            exclude: /node_modules/,
-            loader: 'babel-loader'
-        }, {
-            test: /\.css$/,
-            exclude: /node_modules/,
-            loaders: ['style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]']
-        }, {
-            test: /\.scss$/,
-            exclude: /node_modules/,
-            loaders: ['style', 'css', 'sass']
-        }, {
-            test: /\.(jpg|png)$/,
-            exclude: /node_modules/,
-            loader: 'url?limit=100000'
-        }, {
-            test: /\.svg$/,
-            loader: 'url?limit=65000&mimetype=image/svg+xml&name=public/fonts/[name].[ext]'
-        }, {
-            test: /\.woff$/,
-            loader: 'url?limit=65000&mimetype=application/font-woff&name=public/fonts/[name].[ext]'
-        }, {
-            test: /\.woff2$/,
-            loader: 'url?limit=65000&mimetype=application/font-woff2&name=public/fonts/[name].[ext]'
-        }, {
-            test: /\.[ot]tf$/,
-            loader: 'url?limit=65000&mimetype=application/octet-stream&name=public/fonts/[name].[ext]'
-        }, {
-            test: /\.eot$/,
-            loader: 'url?limit=65000&mimetype=application/vnd.ms-fontobject&name=public/fonts/[name].[ext]'
-        }]
+        loaders: [
+            {
+                enforce: 'pre',
+                test: /\.(jsx|js)$/,
+                loader: 'eslint-loader',
+                exclude: [/node_modules/, /server/]
+            },
+            {
+                test: /\.json$/,
+                loader: 'json'
+            },
+            {
+                test: /\.(jsx|js)$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader'
+            },
+            {
+                test: /\.css$/,
+                exclude: /node_modules/,
+                loaders: [
+                    'style-loader',
+                    'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
+                ]
+            },
+            {
+                test: /\.scss$/,
+                exclude: /node_modules/,
+                loaders: ['style-loader', 'css-loader', 'sass-loader']
+            },
+            {
+                test: /\.(jpg|png)$/,
+                exclude: /node_modules/,
+                loader: 'url-loader?limit=100000'
+            },
+            {
+                test: /\.svg$/,
+                loader: 'url-loader?limit=65000&mimetype=image/svg+xml&name=public/fonts/[name].[ext]'
+            },
+            {
+                test: /\.woff$/,
+                loader: 'url-loader?limit=65000&mimetype=application/font-woff&name=public/fonts/[name].[ext]'
+            },
+            {
+                test: /\.woff2$/,
+                loader: 'url-loader?limit=65000&mimetype=application/font-woff2&name=public/fonts/[name].[ext]'
+            },
+            {
+                test: /\.[ot]tf$/,
+                loader: 'url-loader?limit=65000&mimetype=application/octet-stream&name=public/fonts/[name].[ext]'
+            },
+            {
+                test: /\.eot$/,
+                loader: 'url-loader?limit=65000&mimetype=application/vnd.ms-fontobject&name=public/fonts/[name].[ext]'
+            }
+        ]
     },
-    plugins: [
-        new WebpackNotifierPlugin(),
-        new DashboardPlugin()
-    ]
+    plugins: [new WebpackNotifierPlugin(), new DashboardPlugin()]
 };
 
 if (process.env.NODE_ENV === 'production') {
@@ -72,7 +85,7 @@ if (process.env.NODE_ENV === 'production') {
     config.plugins = [
         new webpack.DefinePlugin({
             'process.env': {
-                'NODE_ENV': JSON.stringify('production')
+                NODE_ENV: JSON.stringify('production')
             }
         }),
         new webpack.optimize.UglifyJsPlugin()
