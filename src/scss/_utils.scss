@@ -2,45 +2,8 @@
 
 // TYPOGRAPHY
 
-.ultra-light {
-    font-weight: $ultra-light;
-}
-
-.light {
-    font-weight: $light;
-}
-
-.regular {
-    font-weight: $normal;
-}
-
-.bold {
-    font-weight: $bold;
-}
-
-.serif {
-    font-family: $serif;
-}
-
 .mono {
     font-family: $mono;
-}
-
-.sans {
-    font-family: $sans;
-}
-
-.italic {
-    font-family: serif;
-    font-style: italic;
-}
-
-.underline {
-    text-decoration: underline;
-}
-
-.gray {
-    color: gray;
 }
 
 .dark-header {
@@ -71,15 +34,75 @@
     color: $accent-colour;
 }
 
-.text-lightgrey {
-    color: $lightgrey;
+.text-light {
+    color: $white;
 }
 
-.text-grey {
-    color: $grey;
+.text-dark {
+    color: $darkgray;
+}
+
+.text-lightgray {
+    color: $lightgray;
+}
+
+.text-darkgray {
+    color: $darkgray;
+}
+
+.hover-main {
+    transition: $s-animation;
+    &:hover {
+        color: $main-colour;
+    }
+}
+
+.hover-secondary {
+    transition: $s-animation;
+    &:hover {
+        color: $secondary-colour;
+    }
+}
+
+.hover-accent {
+    transition: $s-animation;
+    &:hover {
+        color: $accent-colour;
+    }
+}
+
+.su {
+    text-decoration: none;
+
+    @include smart-underline($background-colour, $text-dark, $selection);
+}
+
+.su-colour {
+    text-decoration: none;
+
+    @include smart-underline($background-colour, $main-colour, $selection);
+}
+
+.st {
+    text-decoration: line-through;
+    color: $main-colour;
+
+    > * {
+        color: $text-dark;
+    }
+}
+
+.disabled {
+    cursor: text;
+
+    opacity: .5;
 }
 
 // WHITE SPACE
+
+.preserve-whitespace {
+    white-space: pre;
+}
 
 .gutter-small {
     @include break(xsmall) {
@@ -124,11 +147,37 @@
     max-height: 100%;
 }
 
-.radius {
-    @include border-radius($bradius);
+.fill {
+    height: 100%;
 }
 
-.center-vertical {
+.full {
+    min-height: 100vh;
+    margin: 0;
+}
+
+.bcenter {
+    display: block;
+
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.icon {
+    margin-top: -10px;
+
+    color: $text-dark;
+}
+
+.radius {
+    border-radius: $bradius;
+}
+
+.vertical-wrapper {
+    margin: auto;
+}
+
+.vertical-center {
     display: -ms-flexbox;
     display: -webkit-flex;
     display:         flex;
@@ -139,7 +188,7 @@
             align-items: center;
 }
 
-.center-vertical-not-small {
+.vertical-center-not-small {
     @include break(not-small) {
         display: -ms-flexbox;
         display: -webkit-flex;
@@ -154,6 +203,10 @@
 
 .overhidden {
     overflow: hidden;
+}
+
+.xscroll {
+    overflow-x: scroll;
 }
 
 // Cursor
@@ -176,8 +229,31 @@
     background-color: $accent-colour;
 }
 
-.bg-lightgrey {
-    background-color: $lightgrey;
+.bg-lightgray {
+    background-color: $lightgray;
+}
+
+.bg-darkgray {
+    background-color: $darkgray;
+}
+
+// Layout
+
+.flex {
+    display: flex;
+}
+
+.flex-w {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sb {
+    justify-content: space-between;
+}
+
+.cv {
+    align-items: center;
 }
 
 // Misc
@@ -185,4 +261,8 @@
 @mixin text-underline-color($color) {
     -moz-text-decoration-color: $color; /* Code for Firefox */
          text-decoration-color: $color;
+}
+
+.anim {
+    transition: $s-animation;
 }

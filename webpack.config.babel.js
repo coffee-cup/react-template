@@ -5,6 +5,11 @@ import path from 'path';
 
 require('es6-promise').polyfill();
 
+const isProd = process.env.NODE_ENV === 'production';
+console.log(
+    isProd ? 'Building for Production ⚡️' : 'Building for Development 💃'
+);
+
 const config = {
     entry: ['./src/index.jsx'],
     output: {
@@ -36,17 +41,13 @@ const config = {
                 loader: 'babel-loader'
             },
             {
-                test: /\.css$/,
-                exclude: /node_modules/,
+                test: /\.(css|scss)$/,
                 loaders: [
                     'style-loader',
-                    'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
+                    'css-loader',
+                    'postcss-loader',
+                    'sass-loader'
                 ]
-            },
-            {
-                test: /\.scss$/,
-                exclude: /node_modules/,
-                loaders: ['style-loader', 'css-loader', 'sass-loader']
             },
             {
                 test: /\.(jpg|png)$/,
@@ -54,45 +55,50 @@ const config = {
                 loader: 'url-loader?limit=100000'
             },
             {
-                test: /\.svg$/,
-                loader: 'url-loader?limit=65000&mimetype=image/svg+xml&name=public/fonts/[name].[ext]'
+                test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                loaders: {
+                    loader: 'url-loader',
+                    query: {
+                        limit: 10000,
+                        mimetype: 'application/font-woff'
+                    }
+                }
             },
             {
-                test: /\.woff$/,
-                loader: 'url-loader?limit=65000&mimetype=application/font-woff&name=public/fonts/[name].[ext]'
-            },
-            {
-                test: /\.woff2$/,
-                loader: 'url-loader?limit=65000&mimetype=application/font-woff2&name=public/fonts/[name].[ext]'
-            },
-            {
-                test: /\.[ot]tf$/,
-                loader: 'url-loader?limit=65000&mimetype=application/octet-stream&name=public/fonts/[name].[ext]'
-            },
-            {
-                test: /\.eot$/,
-                loader: 'url-loader?limit=65000&mimetype=application/vnd.ms-fontobject&name=public/fonts/[name].[ext]'
+                test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                loaders: ['file-loader']
             }
         ]
     },
-    plugins: [new WebpackNotifierPlugin(), new DashboardPlugin()]
+    plugins: []
 };
 
-if (process.env.NODE_ENV === 'production') {
+if (isProd) {
     // Only do this when building for production
     config.devServer = {};
     config.devtool = '';
-    config.plugins = [
+    config.plugins = config.plugins.concat([
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: JSON.stringify('production')
             }
         }),
-        new webpack.optimize.UglifyJsPlugin()
-    ];
+        new webpack.optimize.UglifyJsPlugin({
+            compressor: {
+                warnings: false
+            }
+        }),
+        new webpack.LoaderOptionsPlugin({
+            minimize: true
+        })
+    ]);
 } else {
     // Only do this in development
-    config.devtool = 'eval-source-map';
+    config.devtool = 'inline-source-map';
+    config.plugins = config.plugins.concat([
+        new WebpackNotifierPlugin(),
+        new DashboardPlugin()
+    ]);
 }
 
 export default config;

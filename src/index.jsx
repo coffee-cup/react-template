@@ -4,7 +4,9 @@ import { Router, Route } from 'react-router';
 import createBrowserHistory from 'history/createBrowserHistory';
 import ga from 'react-ga';
 
-import './scss/styles.scss';
+import 'tachyons/css/tachyons.css';
+import 'normalize-css';
+import './scss/main.scss';
 
 // Pages
 import App from './components/App.jsx';
@@ -20,8 +22,8 @@ function logPageView() {
 render(
     <Router history={history} onUpdate={logPageView}>
         <div>
-            <Route exact path="/" component={App} />
-            <Route path="*" component={NotFound} />
+            <Route path="/" component={App} />
+
         </div>
     </Router>,
     document.getElementById('app')

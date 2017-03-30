@@ -7,7 +7,7 @@ import Copy from './Copy.jsx';
 class App extends Component {
     render() {
         return (
-            <div className="main mw100">
+            <div className="ph6-ns ph4-m ph3">
 
                 <Header />
                 <Copy />

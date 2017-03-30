@@ -1,30 +1,32 @@
-$green: #12A96C;
-$blue: #3F24E1;
-$pink: #E83F6F;
-$selection: #00FCD2;
+$lightgray          : #999999;
+$darkgray           : #333333;
+$white              : #FFFFFF;
 
-$grey: grey;
-$lightgrey: #E4E4E4;
+$darkblue           : #3B28CC;
+$lightblue          : #3FAFFF;
+$red                : #E7040F;
+$beige              : #FDF6E3;
+$purple             : #5E2CA5;
+$spotify            : #1ED760;
 
-$main-colour      : $pink;
-$secondary-colour : white;
-$accent-colour    : $blue;
-$text-dark        : #4A4A4A;
-$text-light       : white;
+$main-colour        : $red;
+$secondary-colour   : $lightblue;
+$accent-colour      : $purple;
+$background-colour  : #F4F4F4;
 
-$base-font-size: 16px;
-$base-line-height: 1.5;
+$text-dark          : $darkgray;
+$text-light         : $white;
 
-$ultra-light: 200;
-$light: 300;
-$normal: 400;
-$bold: 600;
+$selection          : #ABA7E8;
 
-$success-colour   : #83CC61;
-$error-colour     : #DE4242;
+$base-font-size     : 18px;
+$base-line-height   : 1.6;
 
-$bradius          : 2px;
+$success-colour     : #83CC61;
+$error-colour       : $red;
 
-$side-padding-small: 1.5rem;
+$bradius            : 2px;
 
-$s-animation: 0.250s ease-in-out;
+$side-padding-small : 1.5rem;
+
+$s-animation        : 0.250s ease-in-out;

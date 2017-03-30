@@ -1,24 +1,28 @@
-import React, { Component } from 'react';
+import React, { PropTypes } from 'react';
+import classNames from 'classnames';
 
-class Header extends Component {
-    render() {
-        return (
-            <header
-                className="grid-noGutter-centered full bg-main center-vertical gutter-small"
-            >
-                <div className="col-9_xs-12">
-                    <div className="header-content pl4 animated fadeInLeft">
-                        <h1 className="f1 mv0 pt1">
-                            {'React Template'}
-                        </h1>
-                        <h2 className="f3 pv1 mv0">
-                            {'A static website thing'}
-                        </h2>
-                    </div>
-                </div>
-            </header>
-        );
-    }
-}
+import Counter from './Counter.jsx';
+
+const Header = ({ className }) => {
+    return (
+        <header
+            className={classNames(
+                className,
+                'header bold full vertical-center'
+            )}
+        >
+            <div>
+                <h1 className="f-headline-ns f-subheadline mv0">Hello.</h1>
+                <Counter />
+            </div>
+        </header>
+    );
+};
+
+Header.displayName = 'Header';
+
+Header.propTypes = {
+    className: PropTypes.string
+};
 
 export default Header;

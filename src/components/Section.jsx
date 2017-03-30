@@ -1,16 +1,25 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import classNames from 'classnames';
+import { HeadingSmall } from './ViewUtils.jsx';
 
 class Section extends Component {
+    constructor(props) {
+        super(props);
+    }
+
     render() {
+        const { className, heading, children } = this.props;
         return (
-            <div className="section animated fadeIn">
-                <h3 className="f3 mt0">
-                    {this.props.heading}
-                </h3>
-                {this.props.children}
+            <div className={classNames(className, 'section')}>
+                <HeadingSmall title={heading} />
+                {children}
             </div>
         );
     }
 }
+
+Section.propTypes = {
+    className: PropTypes.string
+};
 
 export default Section;
