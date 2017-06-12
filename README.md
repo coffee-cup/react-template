@@ -18,6 +18,7 @@ This a React project that can copied to quickly get a static site up and running
 - [React](https://facebook.github.io/react/)
 - [ES6](https://github.com/lukehoban/es6features)
 - [ESLint](http://eslint.org/)
+- [Prettier](https://github.com/prettier/prettier)
 - [Webpack](https://webpack.github.io/)
 - [SCSS](http://sass-lang.com/)
 - [Tachyons](http://tachyons.io/)
