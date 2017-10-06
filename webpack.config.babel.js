@@ -11,7 +11,7 @@ console.log(
 );
 
 const config = {
-    entry: ['babel-polyfill', 'react-hot-loader/patch', './src/index.jsx'],
+    entry: ['babel-polyfill', 'react-hot-loader/patch', './src/Index.jsx'],
     output: {
         path: path.join(__dirname, '/build'),
         filename: 'app.js',
